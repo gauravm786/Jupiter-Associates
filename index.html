@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jupiter Associates – Auto Parts Distributor Pune</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --red: #c0182a;
+      --yellow: #f5a800;
+      --dark: #1a1a1a;
+      --mid: #2d2d2d;
+      --light: #f7f7f7;
+      --white: #ffffff;
+      --gray: #666;
+      --border: #e2e2e2;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      color: var(--dark);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      background: var(--red);
+      color: #fff;
+      font-size: 13px;
+      padding: 6px 0;
+    }
+    .topbar .inner {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .topbar a { color: #fff; text-decoration: none; }
+    .topbar .tb-links { display: flex; gap: 20px; align-items: center; }
+    .topbar .tb-links span { opacity: .7; }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--white);
+      border-bottom: 3px solid var(--yellow);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 12px rgba(0,0,0,.08);
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* LOGO SVG inline */
+    .logo-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
+    .logo-icon { width: 52px; height: 52px; }
+    .logo-text { line-height: 1.1; }
+    .logo-text .l1 { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 800; color: var(--red); letter-spacing: 1px; }
+    .logo-text .l2 { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; color: var(--yellow); letter-spacing: 2px; }
+
+    /* SEARCH */
+    .search-bar {
+      flex: 1;
+      max-width: 480px;
+      display: flex;
+      border: 2px solid var(--yellow);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .search-bar input {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 10px 14px;
+      font-size: 14px;
+      font-family: 'Barlow', sans-serif;
+    }
+    .search-bar button {
+      background: var(--yellow);
+      border: none;
+      padding: 0 18px;
+      cursor: pointer;
+      font-size: 18px;
+      color: var(--dark);
+      transition: background .2s;
+    }
+    .search-bar button:hover { background: var(--red); color: #fff; }
+
+    /* HEADER CTA */
+    .header-cta { display: flex; align-items: center; gap: 12px; }
+    .btn-call {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--red); color: #fff;
+      padding: 10px 18px; border-radius: 6px;
+      font-weight: 600; font-size: 14px;
+      text-decoration: none; white-space: nowrap;
+      transition: background .2s;
+    }
+    .btn-call:hover { background: #a01020; }
+    .btn-call .ico { font-size: 18px; }
+
+    /* HAMBURGER */
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
+    .hamburger span { display: block; width: 26px; height: 3px; background: var(--dark); margin: 5px 0; border-radius: 2px; transition: .3s; }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--dark);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+    }
+    nav a {
+      color: #e0e0e0;
+      text-decoration: none;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: .5px;
+      padding: 14px 18px;
+      display: block;
+      transition: color .2s, background .2s;
+      position: relative;
+    }
+    nav a:hover, nav a.active { color: var(--yellow); background: rgba(255,255,255,.04); }
+    nav a.active::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--yellow);
+    }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown .dropdown-menu {
+      display: none; position: absolute; top: 100%; left: 0;
+      background: var(--mid); min-width: 220px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.3);
+      border-top: 3px solid var(--yellow);
+      z-index: 200;
+    }
+    .nav-dropdown:hover .dropdown-menu { display: block; }
+    .dropdown-menu a { padding: 11px 20px; font-size: 14px; border-bottom: 1px solid rgba(255,255,255,.06); }
+
+    /* ── HERO BANNER ── */
+    .hero {
+      background: linear-gradient(135deg, var(--dark) 0%, #2a0a0a 100%);
+      position: relative;
+      overflow: hidden;
+      min-height: 480px;
+      display: flex;
+      align-items: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-gear {
+      position: absolute;
+      right: -60px; top: -60px;
+      width: 500px; height: 500px;
+      opacity: .05;
+      animation: spin 40s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .hero-inner {
+      max-width: 1200px;
+      margin: auto;
+      padding: 60px 20px;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .hero-content {}
+    .hero-badge {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--dark);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 2px;
+      padding: 4px 12px;
+      border-radius: 3px;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(36px, 5vw, 62px);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.05;
+      margin-bottom: 16px;
+    }
+    .hero h1 span { color: var(--yellow); }
+    .hero p {
+      color: #bbb;
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 28px;
+      max-width: 440px;
+    }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--yellow); color: var(--dark);
+      padding: 13px 28px; border-radius: 6px;
+      font-weight: 700; font-family: 'Barlow Condensed', sans-serif;
+      font-size: 17px; letter-spacing: .5px;
+      text-decoration: none; display: inline-block;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 16px rgba(245,168,0,.3);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,168,0,.45); }
+    .btn-secondary {
+      background: transparent; color: #fff;
+      padding: 13px 28px; border-radius: 6px;
+      font-weight: 600; font-family: 'Barlow Condensed', sans-serif;
+      font-size: 17px; letter-spacing: .5px;
+      text-decoration: none; display: inline-block;
+      border: 2px solid rgba(255,255,255,.3);
+      transition: border-color .2s, color .2s;
+    }
+    .btn-secondary:hover { border-color: var(--yellow); color: var(--yellow); }
+    .hero-stats {
+      display: flex; gap: 28px; margin-top: 36px;
+    }
+    .stat { }
+    .stat-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 32px; font-weight: 800; color: var(--yellow);
+      line-height: 1;
+    }
+    .stat-label { font-size: 12px; color: #888; letter-spacing: 1px; margin-top: 2px; }
+
+    .hero-cards {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+    }
+    .hcard {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: background .2s, border-color .2s, transform .2s;
+    }
+    .hcard:hover { background: rgba(245,168,0,.12); border-color: var(--yellow); transform: translateY(-3px); }
+    .hcard .hc-icon { font-size: 32px; margin-bottom: 10px; }
+    .hcard .hc-label { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 700; color: #fff; }
+
+    /* ── BRANDS BAR ── */
+    .brands-bar {
+      background: var(--light);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0;
+      overflow: hidden;
+    }
+    .brands-scroll {
+      display: flex;
+      gap: 40px;
+      animation: scroll-brands 20s linear infinite;
+      width: max-content;
+    }
+    @keyframes scroll-brands {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .brand-chip {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--gray);
+      letter-spacing: 1px;
+      white-space: nowrap;
+      padding: 6px 16px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: #fff;
+    }
+
+    /* ── SECTION HEADER ── */
+    .section-header {
+      text-align: center;
+      margin-bottom: 44px;
+    }
+    .section-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 8px;
+    }
+    .section-header h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.1;
+    }
+    .section-header h2 span { color: var(--red); }
+    .section-header p {
+      color: var(--gray);
+      font-size: 15px;
+      margin-top: 10px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .divider-line {
+      width: 60px; height: 4px;
+      background: linear-gradient(90deg, var(--red), var(--yellow));
+      margin: 14px auto 0;
+      border-radius: 2px;
+    }
+
+    /* ── PRODUCTS SECTION ── */
+    .products-section { padding: 70px 0; background: var(--white); }
+    .container { max-width: 1200px; margin: auto; padding: 0 20px; }
+
+    .product-filter {
+      display: flex; gap: 10px; flex-wrap: wrap;
+      justify-content: center; margin-bottom: 36px;
+    }
+    .filter-btn {
+      padding: 8px 20px;
+      border: 2px solid var(--border);
+      border-radius: 30px;
+      background: #fff;
+      font-family: 'Barlow', sans-serif;
+      font-size: 13px; font-weight: 600;
+      cursor: pointer; transition: .2s;
+      color: var(--gray);
+    }
+    .filter-btn:hover, .filter-btn.active {
+      border-color: var(--red); color: var(--red); background: #fff5f5;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 22px;
+    }
+    .product-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      transition: box-shadow .2s, transform .2s;
+      cursor: pointer;
+    }
+    .product-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,.1); transform: translateY(-4px); }
+    .pc-img {
+      height: 160px;
+      background: var(--light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 52px;
+      position: relative;
+    }
+    .pc-badge {
+      position: absolute; top: 10px; right: 10px;
+      background: var(--red); color: #fff;
+      font-size: 11px; font-weight: 700;
+      padding: 3px 8px; border-radius: 3px;
+    }
+    .pc-body { padding: 16px; }
+    .pc-cat { font-size: 11px; color: var(--yellow); font-weight: 700; letter-spacing: 1px; margin-bottom: 4px; }
+    .pc-name { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+    .pc-brand { font-size: 12px; color: var(--gray); margin-bottom: 12px; }
+    .pc-footer { display: flex; align-items: center; justify-content: space-between; }
+    .pc-enquire {
+      background: var(--yellow); color: var(--dark);
+      border: none; padding: 8px 16px; border-radius: 5px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 14px;
+      cursor: pointer; transition: background .2s;
+    }
+    .pc-enquire:hover { background: var(--red); color: #fff; }
+    .pc-more { font-size: 12px; color: var(--gray); text-decoration: underline; cursor: pointer; }
+
+    /* ── WHY US ── */
+    .why-section { padding: 70px 0; background: var(--dark); }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 24px; }
+    .why-card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 12px;
+      padding: 28px 22px;
+      text-align: center;
+      transition: background .2s, transform .2s;
+    }
+    .why-card:hover { background: rgba(245,168,0,.1); transform: translateY(-4px); }
+    .why-icon { font-size: 40px; margin-bottom: 14px; }
+    .why-card h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 19px; font-weight: 700;
+      color: #fff; margin-bottom: 8px;
+    }
+    .why-card p { font-size: 13px; color: #999; line-height: 1.6; }
+    .why-section .section-header h2 { color: #fff; }
+
+    /* ── ABOUT STRIP ── */
+    .about-section { padding: 70px 0; background: var(--light); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+    .about-img-wrap {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.07);
+      text-align: center;
+    }
+    .about-img-wrap .big-icon { font-size: 100px; }
+    .about-content h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .about-content h2 span { color: var(--red); }
+    .about-content p { color: var(--gray); font-size: 15px; line-height: 1.8; margin-bottom: 18px; }
+    .about-points { list-style: none; margin-bottom: 24px; }
+    .about-points li {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--dark);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .about-points li::before {
+      content: '✓';
+      background: var(--yellow); color: var(--dark);
+      width: 22px; height: 22px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 800; flex-shrink: 0;
+    }
+
+    /* ── BRANDS SECTION ── */
+    .brands-section { padding: 60px 0; background: #fff; }
+    .brands-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 16px; }
+    .brand-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 12px;
+      text-align: center;
+      transition: border-color .2s, box-shadow .2s;
+      cursor: pointer;
+    }
+    .brand-card:hover { border-color: var(--yellow); box-shadow: 0 4px 12px rgba(245,168,0,.15); }
+    .brand-card .b-icon { font-size: 28px; margin-bottom: 6px; }
+    .brand-card .b-name { font-size: 12px; font-weight: 600; color: var(--gray); }
+
+    /* ── CONTACT ── */
+    .contact-section { padding: 70px 0; background: var(--dark); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+    .contact-info h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 38px; font-weight: 800;
+      color: #fff; margin-bottom: 16px;
+    }
+    .contact-info h2 span { color: var(--yellow); }
+    .contact-info p { color: #999; font-size: 15px; line-height: 1.7; margin-bottom: 28px; }
+    .contact-items { display: flex; flex-direction: column; gap: 16px; }
+    .contact-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      background: rgba(255,255,255,.05);
+      padding: 16px 18px; border-radius: 8px;
+      border-left: 3px solid var(--yellow);
+    }
+    .ci-icon { font-size: 22px; flex-shrink: 0; }
+    .ci-text {}
+    .ci-label { font-size: 11px; color: var(--yellow); font-weight: 700; letter-spacing: 1px; margin-bottom: 2px; }
+    .ci-val { font-size: 14px; color: #ccc; }
+    .ci-val a { color: #ccc; text-decoration: none; }
+    .ci-val a:hover { color: var(--yellow); }
+
+    .contact-form {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 12px;
+      padding: 36px;
+    }
+    .contact-form h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 24px; font-weight: 700;
+      color: #fff; margin-bottom: 24px;
+    }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 12px; font-weight: 600; color: #aaa; margin-bottom: 6px; letter-spacing: .5px; }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 6px;
+      padding: 11px 14px;
+      color: #fff;
+      font-family: 'Barlow', sans-serif;
+      font-size: 14px;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--yellow); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-group select option { background: var(--mid); color: #fff; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .btn-submit {
+      width: 100%;
+      background: linear-gradient(90deg, var(--red), #e02040);
+      color: #fff;
+      border: none; border-radius: 6px;
+      padding: 14px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px; font-weight: 700; letter-spacing: 1px;
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 16px rgba(192,24,42,.4);
+    }
+    .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(192,24,42,.55); }
+    .form-success {
+      display: none;
+      background: rgba(39,174,96,.15);
+      border: 1px solid #27ae60;
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+      color: #2ecc71;
+      font-weight: 600;
+      margin-top: 14px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #111;
+      padding: 50px 0 0;
+    }
+    .footer-grid {
+      max-width: 1200px; margin: auto; padding: 0 20px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 36px;
+    }
+    .footer-brand .logo-text .l1 { font-size: 20px; }
+    .footer-brand p { color: #777; font-size: 13px; line-height: 1.7; margin-top: 14px; margin-bottom: 20px; }
+    .social-links { display: flex; gap: 10px; }
+    .social-link {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(255,255,255,.08);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; text-decoration: none;
+      transition: background .2s;
+    }
+    .social-link:hover { background: var(--yellow); }
+
+    .footer-col h4 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 16px; font-weight: 700;
+      color: #fff; margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--yellow);
+      display: inline-block;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 9px; }
+    .footer-col ul li a { color: #777; text-decoration: none; font-size: 13px; transition: color .2s; }
+    .footer-col ul li a:hover { color: var(--yellow); }
+
+    .footer-newsletter p { color: #777; font-size: 13px; margin-bottom: 14px; }
+    .nl-form { display: flex; border-radius: 6px; overflow: hidden; }
+    .nl-form input {
+      flex: 1; border: none; background: rgba(255,255,255,.08);
+      color: #fff; padding: 10px 14px; font-size: 13px;
+      outline: none;
+    }
+    .nl-form button {
+      background: var(--yellow); border: none;
+      padding: 0 16px; color: var(--dark);
+      font-weight: 700; font-size: 13px;
+      cursor: pointer; white-space: nowrap;
+    }
+    .nl-form button:hover { background: var(--red); color: #fff; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.07);
+      padding: 18px 20px;
+      max-width: 1200px; margin: 20px auto 0;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 12px; color: #555;
+      flex-wrap: wrap; gap: 8px;
+    }
+    .footer-bottom a { color: #555; text-decoration: none; }
+    .footer-bottom a:hover { color: var(--yellow); }
+
+    /* ── MOBILE NAV ── */
+    .mobile-nav {
+      display: none;
+      background: var(--dark);
+      padding: 0 20px 16px;
+    }
+    .mobile-nav a {
+      display: block;
+      color: #ccc;
+      text-decoration: none;
+      padding: 12px 0;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px; font-weight: 600;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .mobile-nav a:hover { color: var(--yellow); }
+    .mobile-nav.open { display: block; }
+
+    /* ── FLOATING CTA ── */
+    .float-whatsapp {
+      position: fixed; bottom: 24px; right: 24px; z-index: 999;
+      background: #25d366; color: #fff;
+      width: 56px; height: 56px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px; text-decoration: none;
+      box-shadow: 0 4px 16px rgba(37,211,102,.5);
+      transition: transform .2s;
+    }
+    .float-whatsapp:hover { transform: scale(1.1); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .search-bar { display: none; }
+      .hamburger { display: block; }
+      nav { display: none; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-cards { display: none; }
+      .about-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .hero-stats { gap: 16px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .topbar .inner { justify-content: center; }
+      .header-cta .btn-call span:not(.ico) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="inner">
+    <div>📍 D-1 Block 17/1 MIDC Chinchwad, Pune – 411019</div>
+    <div class="tb-links">
+      <a href="tel:+919702627132">📞 +91-9702627132</a>
+      <span>|</span>
+      <a href="mailto:tushar@jupiter-associates.com">✉️ tushar@jupiter-associates.com</a>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo-wrap">
+      <!-- Inline SVG logo matching Jupiter Associates branding -->
+      <svg class="logo-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="8" y="6" width="32" height="38" rx="4" fill="#c0182a"/>
+        <rect x="14" y="2" width="24" height="8" rx="3" fill="#c0182a"/>
+        <rect x="14" y="18" width="24" height="3" rx="1.5" fill="#fff"/>
+        <rect x="14" y="25" width="24" height="3" rx="1.5" fill="#fff"/>
+        <rect x="14" y="32" width="18" height="3" rx="1.5" fill="#fff"/>
+        <ellipse cx="16" cy="42" rx="14" ry="8" fill="#f5a800" opacity=".9"/>
+      </svg>
+      <div class="logo-text">
+        <div class="l1">JUPITER</div>
+        <div class="l2">ASSOCIATES</div>
+      </div>
+    </a>
+
+    <div class="search-bar">
+      <input type="text" placeholder="Search for auto parts, brands, categories..." id="searchInput" />
+      <button onclick="handleSearch()">🔍</button>
+    </div>
+
+    <div class="header-cta">
+      <a href="tel:+919702627132" class="btn-call">
+        <span class="ico">📞</span>
+        <span>+91-9702627132</span>
+      </a>
+      <button class="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- DESKTOP NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#home" class="active">Home</a>
+    <div class="nav-dropdown">
+      <a href="#products">Products ▾</a>
+      <div class="dropdown-menu">
+        <a href="#products">Engine Parts</a>
+        <a href="#products">Brake & Clutch</a>
+        <a href="#products">Electrical Parts</a>
+        <a href="#products">Suspension</a>
+        <a href="#products">Filters & Oils</a>
+        <a href="#products">Body Parts</a>
+      </div>
+    </div>
+    <a href="#brands">Brands</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact</a>
+    <a href="https://www.jupiter-associates.com" target="_blank">🌐 Website</a>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#home">Home</a>
+  <a href="#products">Products</a>
+  <a href="#brands">Brands</a>
+  <a href="#about">About Us</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <svg class="hero-gear" viewBox="0 0 200 200" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M100 30a70 70 0 1 0 0 140A70 70 0 0 0 100 30zm0 20a50 50 0 1 1 0 100A50 50 0 0 1 100 50zm-4-28h8v16h-8zm0 164h8v16h-8zM30 96h16v8H30zm124 0h16v8h-16zm-92.4-65.2l5.7-5.6 11.3 11.3-5.6 5.6zm73.5 73.6l5.6-5.6 11.3 11.3-5.6 5.6zm-84.8 0l11.3-11.3 5.6 5.6-11.3 11.3zm73.5-73.6 11.3-11.3 5.6 5.7-11.3 11.2z"/>
+  </svg>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">TRUSTED SINCE — PUNE, MAHARASHTRA</div>
+      <h1>Genuine <span>Auto Parts</span><br/>You Can Trust</h1>
+      <p>Jupiter Associates is your reliable partner for genuine automobile spare parts for commercial vehicles, passenger cars & two-wheelers. Serving MIDC Chinchwad & all of Pune district.</p>
+      <div class="hero-btns">
+        <a href="#products" class="btn-primary">Browse Products</a>
+        <a href="#contact" class="btn-secondary">Get a Quote</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">40+</div>
+          <div class="stat-label">BRANDS</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">5000+</div>
+          <div class="stat-label">PARTS</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">GENUINE</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-cards">
+      <div class="hcard"><div class="hc-icon">🔧</div><div class="hc-label">Engine Parts</div></div>
+      <div class="hcard"><div class="hc-icon">🛞</div><div class="hc-label">Suspension</div></div>
+      <div class="hcard"><div class="hc-icon">💡</div><div class="hc-label">Electrical</div></div>
+      <div class="hcard"><div class="hc-icon">🛑</div><div class="hc-label">Brakes</div></div>
+      <div class="hcard"><div class="hc-icon">🔩</div><div class="hc-label">Filters & Oils</div></div>
+      <div class="hcard"><div class="hc-icon">🚗</div><div class="hc-label">Body Parts</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS TICKER -->
+<div class="brands-bar">
+  <div class="brands-scroll" id="brandsTicker">
+    <div class="brand-chip">Cummins</div>
+    <div class="brand-chip">Holset</div>
+    <div class="brand-chip">Valeo</div>
+    <div class="brand-chip">Exide</div>
+    <div class="brand-chip">Uno Minda</div>
+    <div class="brand-chip">SKF</div>
+    <div class="brand-chip">Texspin</div>
+    <div class="brand-chip">Gates</div>
+    <div class="brand-chip">Endurance</div>
+    <div class="brand-chip">Lucas</div>
+    <div class="brand-chip">Wheels India</div>
+    <div class="brand-chip">Bosch</div>
+    <div class="brand-chip">Federal Mogul</div>
+    <div class="brand-chip">Mahle</div>
+    <div class="brand-chip">Denso</div>
+    <!-- duplicate for seamless loop -->
+    <div class="brand-chip">Cummins</div>
+    <div class="brand-chip">Holset</div>
+    <div class="brand-chip">Valeo</div>
+    <div class="brand-chip">Exide</div>
+    <div class="brand-chip">Uno Minda</div>
+    <div class="brand-chip">SKF</div>
+    <div class="brand-chip">Texspin</div>
+    <div class="brand-chip">Gates</div>
+    <div class="brand-chip">Endurance</div>
+    <div class="brand-chip">Lucas</div>
+    <div class="brand-chip">Wheels India</div>
+    <div class="brand-chip">Bosch</div>
+    <div class="brand-chip">Federal Mogul</div>
+    <div class="brand-chip">Mahle</div>
+    <div class="brand-chip">Denso</div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="products-section" id="products">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Our Catalogue</div>
+      <h2>Featured <span>Auto Parts</span></h2>
+      <p>Sourced directly from top manufacturers. All parts are verified genuine & come with quality assurance.</p>
+      <div class="divider-line"></div>
+    </div>
+
+    <div class="product-filter">
+      <button class="filter-btn active" onclick="filterProducts('all', this)">All Parts</button>
+      <button class="filter-btn" onclick="filterProducts('engine', this)">Engine</button>
+      <button class="filter-btn" onclick="filterProducts('brake', this)">Brake & Clutch</button>
+      <button class="filter-btn" onclick="filterProducts('electrical', this)">Electrical</button>
+      <button class="filter-btn" onclick="filterProducts('suspension', this)">Suspension</button>
+      <button class="filter-btn" onclick="filterProducts('filter', this)">Filters & Oils</button>
+    </div>
+
+    <div class="products-grid" id="productsGrid">
+      <!-- Cards injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag" style="color:var(--yellow)">Why Choose Us</div>
+      <h2>The <span style="color:var(--yellow)">Jupiter</span> Advantage</h2>
+      <p style="color:#888">We don't just sell parts — we build trust, one genuine component at a time.</p>
+      <div class="divider-line"></div>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">✅</div>
+        <h3>100% Genuine Parts</h3>
+        <p>Every part is sourced directly from OEM-authorized manufacturers. No counterfeits, no compromise.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🚚</div>
+        <h3>Fast Delivery</h3>
+        <p>Same-day dispatch for in-stock items across Pune. Pan-India shipping available for bulk orders.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🏭</div>
+        <h3>40+ Leading Brands</h3>
+        <p>Cummins, Valeo, Exide, SKF, Bosch & more — we are an authorized distributor for top brands.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🤝</div>
+        <h3>Expert Support</h3>
+        <p>Our team of experienced professionals helps you find the exact part for your vehicle make and model.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💰</div>
+        <h3>Competitive Pricing</h3>
+        <p>Direct sourcing from manufacturers means you get the best price without quality compromise.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔄</div>
+        <h3>Easy Returns</h3>
+        <p>Hassle-free return policy. Wrong part or quality issue? We'll sort it out, no questions asked.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <div class="big-icon">🏪</div>
+        <div style="margin-top:20px">
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:800;color:var(--dark)">JUPITER ASSOCIATES</div>
+          <div style="font-size:13px;color:var(--gray);margin-top:4px">Authorized Distributor – Pune</div>
+          <div style="margin-top:20px;padding:14px;background:var(--light);border-radius:8px;font-size:13px;color:var(--gray)">
+            📍 D-1 Block 17/1 MIDC Chinchwad, Pune – 411019
+          </div>
+        </div>
+      </div>
+      <div class="about-content">
+        <h2>Your Trusted Partner for <span>Genuine Auto Spares</span></h2>
+        <p>Jupiter Associates is a leading distributor of genuine automobile spare parts based in MIDC Chinchwad, Pune. Managed by Tushar Saindane, we serve garages, workshops, fleet operators and retailers across Pune district and beyond.</p>
+        <p>We source directly from authorized manufacturers — giving our customers the confidence of OEM-quality parts at competitive prices.</p>
+        <ul class="about-points">
+          <li>Authorized distributor for 40+ global brands</li>
+          <li>Covering commercial vehicles, passenger cars & two-wheelers</li>
+          <li>Pan-India dispatch with same-day fulfillment</li>
+          <li>Dedicated account manager for bulk buyers</li>
+          <li>GST-compliant billing and transparent pricing</li>
+        </ul>
+        <a href="#contact" class="btn-primary">Contact Us Today</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<section class="brands-section" id="brands">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Our Partners</div>
+      <h2>Brands We <span>Distribute</span></h2>
+      <div class="divider-line"></div>
+    </div>
+    <div class="brands-grid">
+      <div class="brand-card"><div class="b-icon">⚙️</div><div class="b-name">Cummins</div></div>
+      <div class="brand-card"><div class="b-icon">💨</div><div class="b-name">Holset</div></div>
+      <div class="brand-card"><div class="b-icon">🔋</div><div class="b-name">Exide</div></div>
+      <div class="brand-card"><div class="b-icon">💡</div><div class="b-name">Valeo</div></div>
+      <div class="brand-card"><div class="b-icon">🔩</div><div class="b-name">Uno Minda</div></div>
+      <div class="brand-card"><div class="b-icon">🏎️</div><div class="b-name">SKF</div></div>
+      <div class="brand-card"><div class="b-icon">⛽</div><div class="b-name">Bosch</div></div>
+      <div class="brand-card"><div class="b-icon">🛞</div><div class="b-name">Gates</div></div>
+      <div class="brand-card"><div class="b-icon">🔌</div><div class="b-name">Denso</div></div>
+      <div class="brand-card"><div class="b-icon">🛡️</div><div class="b-name">Mahle</div></div>
+      <div class="brand-card"><div class="b-icon">🔧</div><div class="b-name">Texspin</div></div>
+      <div class="brand-card"><div class="b-icon">🚗</div><div class="b-name">Lucas</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h2>Get In <span>Touch</span></h2>
+        <p>Have a parts requirement? Need a bulk quote? Our team is ready to assist you with the right part at the right price.</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="ci-icon">📍</div>
+            <div class="ci-text">
+              <div class="ci-label">ADDRESS</div>
+              <div class="ci-val">D-1 Block 17/1 MIDC Chinchwad, Pune – 411019</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">📞</div>
+            <div class="ci-text">
+              <div class="ci-label">PHONE</div>
+              <div class="ci-val"><a href="tel:+919702627132">+91-9702627132</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">✉️</div>
+            <div class="ci-text">
+              <div class="ci-label">EMAIL</div>
+              <div class="ci-val"><a href="mailto:tushar@jupiter-associates.com">tushar@jupiter-associates.com</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">🌐</div>
+            <div class="ci-text">
+              <div class="ci-label">WEBSITE</div>
+              <div class="ci-val"><a href="https://www.jupiter-associates.com" target="_blank">www.jupiter-associates.com</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h3>📋 Send Us an Enquiry</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>YOUR NAME</label>
+            <input type="text" id="fname" placeholder="Full name" />
+          </div>
+          <div class="form-group">
+            <label>PHONE NUMBER</label>
+            <input type="tel" id="fphone" placeholder="+91-XXXXXXXXXX" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>EMAIL ADDRESS</label>
+          <input type="email" id="femail" placeholder="your@email.com" />
+        </div>
+        <div class="form-group">
+          <label>PART / PRODUCT CATEGORY</label>
+          <select id="fcategory">
+            <option value="">Select a category</option>
+            <option>Engine Parts</option>
+            <option>Brake & Clutch</option>
+            <option>Electrical Parts</option>
+            <option>Suspension & Steering</option>
+            <option>Filters & Oils</option>
+            <option>Body Parts</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>YOUR MESSAGE</label>
+          <textarea id="fmessage" placeholder="Describe the part you need, vehicle make/model, quantity..."></textarea>
+        </div>
+        <button class="btn-submit" onclick="submitForm()">SEND ENQUIRY →</button>
+        <div class="form-success" id="formSuccess">✅ Thank you! We'll get back to you within 24 hours.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="logo-wrap">
+        <svg width="38" height="38" viewBox="0 0 52 52" fill="none"><rect x="8" y="6" width="32" height="38" rx="4" fill="#c0182a"/><rect x="14" y="2" width="24" height="8" rx="3" fill="#c0182a"/><rect x="14" y="18" width="24" height="3" rx="1.5" fill="#fff"/><rect x="14" y="25" width="24" height="3" rx="1.5" fill="#fff"/><rect x="14" y="32" width="18" height="3" rx="1.5" fill="#fff"/><ellipse cx="16" cy="42" rx="14" ry="8" fill="#f5a800" opacity=".9"/></svg>
+        <div class="logo-text"><div class="l1">JUPITER</div><div class="l2">ASSOCIATES</div></div>
+      </a>
+      <p>Your trusted source for genuine automobile spare parts in Pune. Serving workshops, fleet operators and retailers across Maharashtra.</p>
+      <div class="social-links">
+        <a href="#" class="social-link">📘</a>
+        <a href="#" class="social-link">📸</a>
+        <a href="https://wa.me/919702627132" class="social-link">💬</a>
+        <a href="mailto:tushar@jupiter-associates.com" class="social-link">✉️</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#brands">Brands</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <ul>
+        <li><a href="#products">Engine Parts</a></li>
+        <li><a href="#products">Brake & Clutch</a></li>
+        <li><a href="#products">Electrical Parts</a></li>
+        <li><a href="#products">Suspension</a></li>
+        <li><a href="#products">Filters & Oils</a></li>
+        <li><a href="#products">Body Parts</a></li>
+      </ul>
+    </div>
+    <div class="footer-col footer-newsletter">
+      <h4>Stay Updated</h4>
+      <p>Get notified about new arrivals, deals and product updates.</p>
+      <div class="nl-form">
+        <input type="email" placeholder="Enter email" id="nlEmail" />
+        <button onclick="subscribeNewsletter()">SUBSCRIBE</button>
+      </div>
+      <div style="margin-top:16px; font-size:13px; color:#555;">
+        <div>📞 <a href="tel:+919702627132" style="color:#555;text-decoration:none">+91-9702627132</a></div>
+        <div style="margin-top:6px">📍 MIDC Chinchwad, Pune 411019</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2025 Jupiter Associates. All Rights Reserved. | Proprietor: Tushar Saindane</div>
+    <div>
+      <a href="#">Privacy Policy</a> &nbsp;|&nbsp;
+      <a href="#">Terms</a> &nbsp;|&nbsp;
+      <a href="https://www.jupiter-associates.com" target="_blank">www.jupiter-associates.com</a>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/919702627132" class="float-whatsapp" target="_blank" title="Chat on WhatsApp">💬</a>
+
+<script>
+  // Products data
+  const products = [
+    { cat:'engine', icon:'⚙️', name:'Piston Assembly', brand:'Federal Mogul', badge:'NEW' },
+    { cat:'brake', icon:'🛑', name:'Brake Pads Set', brand:'Valeo', badge:null },
+    { cat:'electrical', icon:'🔋', name:'Car Battery', brand:'Exide', badge:'HOT' },
+    { cat:'suspension', icon:'🛞', name:'Shock Absorber', brand:'SKF', badge:null },
+    { cat:'filter', icon:'🔩', name:'Oil Filter', brand:'Bosch', badge:null },
+    { cat:'engine', icon:'💨', name:'Turbocharger', brand:'Holset', badge:'HOT' },
+    { cat:'brake', icon:'🔘', name:'Brake Disc Rotor', brand:'Endurance', badge:null },
+    { cat:'electrical', icon:'💡', name:'Alternator', brand:'Valeo', badge:'NEW' },
+    { cat:'suspension', icon:'🔧', name:'Tie Rod End', brand:'Moog', badge:null },
+    { cat:'filter', icon:'⛽', name:'Fuel Filter', brand:'Mahle', badge:null },
+    { cat:'engine', icon:'🔩', name:'Connecting Rod', brand:'Cummins', badge:null },
+    { cat:'electrical', icon:'🔌', name:'Starter Motor', brand:'Denso', badge:'HOT' },
+  ];
+
+  let activeFilter = 'all';
+
+  function renderProducts(cat) {
+    const grid = document.getElementById('productsGrid');
+    const filtered = cat === 'all' ? products : products.filter(p => p.cat === cat);
+    grid.innerHTML = filtered.map(p => `
+      <div class="product-card">
+        <div class="pc-img">
+          ${p.icon}
+          ${p.badge ? `<div class="pc-badge">${p.badge}</div>` : ''}
+        </div>
+        <div class="pc-body">
+          <div class="pc-cat">${p.cat.toUpperCase()}</div>
+          <div class="pc-name">${p.name}</div>
+          <div class="pc-brand">Brand: ${p.brand}</div>
+          <div class="pc-footer">
+            <button class="pc-enquire" onclick="enquire('${p.name}')">Enquire Now</button>
+            <span class="pc-more">View Details</span>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function filterProducts(cat, btn) {
+    activeFilter = cat;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderProducts(cat);
+  }
+
+  function enquire(name) {
+    document.getElementById('fcategory').value = '';
+    document.getElementById('fmessage').value = `Hi, I need a quote for: ${name}`;
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function submitForm() {
+    const name = document.getElementById('fname').value.trim();
+    const phone = document.getElementById('fphone').value.trim();
+    if (!name || !phone) { alert('Please enter your name and phone number.'); return; }
+    document.getElementById('formSuccess').style.display = 'block';
+    ['fname','fphone','femail','fcategory','fmessage'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el.tagName === 'SELECT') el.selectedIndex = 0;
+      else el.value = '';
+    });
+    setTimeout(() => document.getElementById('formSuccess').style.display = 'none', 5000);
+  }
+
+  function handleSearch() {
+    const q = document.getElementById('searchInput').value.trim();
+    if (!q) return;
+    document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  document.getElementById('searchInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter') handleSearch();
+  });
+
+  function toggleMobileNav() {
+    document.getElementById('mobileNav').classList.toggle('open');
+  }
+
+  function subscribeNewsletter() {
+    const e = document.getElementById('nlEmail').value.trim();
+    if (!e.includes('@')) { alert('Please enter a valid email.'); return; }
+    alert('Thank you for subscribing!');
+    document.getElementById('nlEmail').value = '';
+  }
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+
+  // Active nav highlight on scroll
+  const sections = ['home','products','brands','about','contact'];
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && window.scrollY >= el.offsetTop - 120) cur = id;
+    });
+    document.querySelectorAll('nav a').forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + cur);
+    });
+  });
+
+  // Init
+  renderProducts('all');
+</script>
+</body>
+</html>
